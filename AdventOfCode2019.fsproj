@@ -11,6 +11,9 @@
 
   <ItemGroup>
     <Compile Include="Log.fs" />
+    <Compile Include="Puzzle.fs" />
+    <Compile Include="Day1.fs" />
+    <Compile Include="PuzzlePool.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

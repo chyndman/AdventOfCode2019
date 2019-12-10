@@ -4,8 +4,10 @@
 
 open System
 open Log
+open AdventOfCode.PuzzlePool
 
 [<EntryPoint>]
 let main argv =
-    Log.info "Hello World from F#!"
+    Log.trace "%A" argv
+    AdventOfCode.PuzzlePool.run argv.[0]
     0 // return an integer exit code
