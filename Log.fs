@@ -27,7 +27,7 @@ module Log
         | Fatal ->   "[" + colorRed + "\\\\\\\\\\\\" + colorOff + "]"
 
     let private write lv =
-        printf "%s " ( prefix lv )
+        printf "%s " (prefix lv)
         printfn
 
     let trace fmt   = write Trace fmt
