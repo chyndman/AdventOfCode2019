@@ -3,8 +3,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. *)
 
 open System
+open Log
 
 [<EntryPoint>]
 let main argv =
-    printfn "Hello World from F#!"
+    Log.info "Hello World from F#!"
     0 // return an integer exit code
