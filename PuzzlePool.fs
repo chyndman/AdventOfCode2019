@@ -12,12 +12,12 @@ module AdventOfCode.PuzzlePool
     let private filterKat p =
         Log.debug "%s: Performing KAT" p.Name
         if p.KnownAnswerTest()
-            then
-                Log.debug "KAT passed"
-                Some p
-            else
-                Log.error "KAT failed"
-                None
+        then
+            Log.debug "KAT passed"
+            Some p
+        else
+            Log.error "KAT failed"
+            None
 
     let private solve lines p' =
         let solOpt =
