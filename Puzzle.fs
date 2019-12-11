@@ -8,5 +8,5 @@ type Puzzle =
     {
         Name: string
         KnownAnswerTest: unit -> bool
-        Solver: string -> (int option)
+        Solver: seq<string> -> (int option)
     }

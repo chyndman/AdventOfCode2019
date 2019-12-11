@@ -4,8 +4,14 @@
 
 module AdventOfCode.Day1
 
-    let kat () = false
-    let solve str = Some 0
+    let private fuel mass = (mass / 3) - 2
+
+    let kat () =
+        true
+        && (fuel 1969) = 654
+        && (fuel 100756) = 33583
+    let solve =
+        (Seq.fold (fun acc l -> acc + (fuel (int l))) 0) >> (fun i -> Some i)
     let puzzles =
         [
             { Puzzle.Name = "day1"; KnownAnswerTest = kat; Solver = solve }

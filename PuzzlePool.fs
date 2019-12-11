@@ -9,14 +9,33 @@ module AdventOfCode.PuzzlePool
 
     let private puzzles = Day1.puzzles
 
-    let run (pname: string) =
+    let private filterKat p =
+        Log.debug "%s: Performing KAT" p.Name
+        if p.KnownAnswerTest()
+            then
+                Log.debug "KAT passed"
+                Some p
+            else
+                Log.error "KAT failed"
+                None
+
+    let private solve lines p' =
+        let solOpt =
+            match p' with
+            | Some p ->
+                Log.info "%s: Solving" p.Name
+                p.Solver lines
+            | None -> None
+        (p', solOpt)
+
+    let private reportSolution = function
+        | (Some p, Some sol) ->
+            Log.info "%s: Solution is %i" p.Name sol
+        | _ -> ()
+
+    let run pname lines =
         puzzles
         |> Seq.find (fun p -> p.Name = pname)
-        |> (fun p ->
-            Log.info "Running puzzle \"%s\"" p.Name
-            Log.debug "Performing KAT"
-            if p.KnownAnswerTest()
-                then
-                    Log.debug "Solving"
-                else
-                    Log.error "KAT failed")
+        |> filterKat
+        |> solve lines
+        |> reportSolution

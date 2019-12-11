@@ -6,8 +6,13 @@ open System
 open Log
 open AdventOfCode.PuzzlePool
 
+let readLines path = IO.File.ReadLines(path)
+
 [<EntryPoint>]
 let main argv =
     Log.trace "%A" argv
-    AdventOfCode.PuzzlePool.run argv.[0]
+    let puzzleName = argv.[0]
+    let inputFilePath = argv.[1]
+    let inputLines = readLines inputFilePath
+    AdventOfCode.PuzzlePool.run puzzleName inputLines
     0 // return an integer exit code
