@@ -7,9 +7,11 @@ module AdventOfCode.Day1
     let private fuel mass = (mass / 3) - 2
 
     let kat () =
-        true
-        && (fuel 1969) = 654
-        && (fuel 100756) = 33583
+        Kat.init()
+        |> Kat.expect 654 (fuel 1969)
+        |> Kat.expect 33583 (fuel 100756)
+        |> Kat.finish
+
     let solve =
         (Seq.fold (fun acc l -> acc + (fuel (int l))) 0) >> (fun i -> Some i)
     let puzzles =
