@@ -7,7 +7,9 @@ module AdventOfCode.PuzzlePool
     open Day1
     open Log
 
-    let private puzzles = Day1.puzzles
+    let private puzzles =
+        Day1.puzzles
+        @ Day2.puzzles
 
     let private filterKat p =
         Log.debug "%s: Performing KAT" p.Name
@@ -31,6 +33,8 @@ module AdventOfCode.PuzzlePool
     let private reportSolution = function
         | (Some p, Some sol) ->
             Log.info "%s: Solution is %i" p.Name sol
+        | (Some p, None) ->
+            Log.warning "%s: No solution" p.Name
         | _ -> ()
 
     let run pname lines =
