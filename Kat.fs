@@ -4,8 +4,6 @@
 
 module AdventOfCode.Kat
 
-    open Log
-
     let init () =
         Log.trace "KAT init"
         (0, 0)

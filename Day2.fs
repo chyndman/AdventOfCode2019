@@ -4,9 +4,9 @@
 
 module AdventOfCode.Day2
 
-    let private parse (line: string) =
-        line.Split [| ',' |]
-        |> Array.map (fun s -> int s)
+    let private parse =
+        let csv (l: string) = l.Split [| ',' |]
+        csv >> Array.map (fun s -> int s)
 
     type ArithOpCode =
         | Add
@@ -45,13 +45,12 @@ module AdventOfCode.Day2
         |> Kat.expect [| 30; 1; 1; 4; 2; 5; 6; 0; 99 |] (compute [| 1; 1; 1; 4; 99; 5; 6; 0; 99 |])
         |> Kat.finish
 
-    let private solvePart1 (lines: seq<string>) =
+    let private solvePart1 lines =
         let arr = parse (Seq.head lines)
         arr.[1] <- 12
         arr.[2] <- 2
         Some (compute arr).[0]
 
-    let puzzles =
-        [
-            { Puzzle.Name = "day2p1"; KnownAnswerTest = katPart1; Solver = solvePart1 }
+    let puzzles = [
+        { Puzzle.Name = "day2p1"; KnownAnswerTest = katPart1; Solver = solvePart1 }
         ]

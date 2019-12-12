@@ -3,7 +3,6 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. *)
 
 open System
-open Log
 open AdventOfCode.PuzzlePool
 
 let readLines path = IO.File.ReadLines(path)

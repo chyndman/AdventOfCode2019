@@ -30,8 +30,7 @@ module AdventOfCode.Day1
 
     let private solvePart2 = solveSumOf fuelCompound
 
-    let puzzles =
-        [
-            { Puzzle.Name = "day1p1"; KnownAnswerTest = katPart1; Solver = solvePart1 }
-            { Puzzle.Name = "day1p2"; KnownAnswerTest = katPart2; Solver = solvePart2 }
+    let puzzles = [
+        { Puzzle.Name = "day1p1"; KnownAnswerTest = katPart1; Solver = solvePart1 }
+        { Puzzle.Name = "day1p2"; KnownAnswerTest = katPart2; Solver = solvePart2 }
         ]

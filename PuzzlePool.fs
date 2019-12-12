@@ -4,12 +4,9 @@
 
 module AdventOfCode.PuzzlePool
 
-    open Day1
-    open Log
-
     let private puzzles =
-        Day1.puzzles
-        @ Day2.puzzles
+        Day1.puzzles @
+        Day2.puzzles
 
     let private filterKat p =
         Log.debug "%s: Performing KAT" p.Name
