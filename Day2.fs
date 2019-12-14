@@ -51,6 +51,30 @@ module AdventOfCode.Day2
         arr.[2] <- 2
         Some (compute arr).[0]
 
+    let nextNounVerb (noun, verb) =
+        if verb = 99
+        then (noun + 1, 0)
+        else (noun, verb + 1)
+
+    let private katPart2 () = true
+
+    let private solveNounVerbInverse =
+        let rec solveNounVerbInverse' (noun, verb) out ln =
+            let arr = parse ln
+            arr.[1] <- noun
+            arr.[2] <- verb
+            let outComputed = (compute arr).[0]
+            if out = outComputed
+            then (noun, verb)
+            else solveNounVerbInverse' (nextNounVerb (noun, verb)) out ln
+        solveNounVerbInverse' (0, 0)
+
+    let private solvePart2 lines =
+        let ln = Seq.head lines
+        let (noun, verb) = solveNounVerbInverse 19690720 ln
+        Some ((100 * noun) + verb)
+
     let puzzles = [
         { Puzzle.Name = "day2p1"; KnownAnswerTest = katPart1; Solver = solvePart1 }
+        { Puzzle.Name = "day2p2"; KnownAnswerTest = katPart2; Solver = solvePart2 }
         ]
